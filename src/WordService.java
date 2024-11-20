@@ -18,8 +18,8 @@ public class WordService {
     public char getUserGuessInput() {
         System.out.print("Enter letter from (a-z) or (A-Z): ");
         String input = scanner.nextLine();
-
-        while (input.length() != 1 && !Character.isAlphabetic(input.charAt(0))) {
+        System.out.println(input.length());
+        while (input.length() != 1 || !Character.isAlphabetic(input.charAt(0))) {
             System.out.println("Invalid input. Please try again");
             input = scanner.nextLine();
         }
