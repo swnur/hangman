@@ -1,13 +1,16 @@
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
 public class WordService {
     private final Scanner scanner;
     private final Random random;
+    private final List<String> dictionary;
 
     public WordService() {
         random = new Random();
         scanner = new Scanner(System.in);
+        dictionary = new DictionaryLoader().getData("hangman_words.txt");
     }
 
     public String getUserStartInput() {
@@ -45,11 +48,7 @@ public class WordService {
     }
 
     public String getRandomWord() {
-        String[] dictionary = {"government", "conversation", "condition", "preference", "decision", "daughter", "behavior",
-                "damage", "platform", "connection", "solution", "hearing", "flight", "interest", "administration",
-                "revenue", "priority", "profession", "driver"};
-
-        return dictionary[random.nextInt(dictionary.length)];
+        return dictionary.get(random.nextInt(dictionary.size()));
     }
 
 }
