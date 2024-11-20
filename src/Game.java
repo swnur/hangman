@@ -31,7 +31,7 @@ public class Game {
 
     private void startRound() {
         final int TOTAL_ATTEMPTS = 7;
-        String word = wordService.getRandomWord();
+        String word = wordService.getRandomWordFromDictionary();
         char[] guessWord = new char[word.length()];
         Arrays.fill(guessWord, '_');
 

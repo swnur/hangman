@@ -10,7 +10,7 @@ public class WordService {
     public WordService() {
         random = new Random();
         scanner = new Scanner(System.in);
-        dictionary = new DictionaryLoader().getData("hangman_words.txt");
+        dictionary = new DictionaryLoader().getDictionaryOfWords("hangman_words.txt");
     }
 
     public String getUserStartInput() {
@@ -47,8 +47,7 @@ public class WordService {
         return word.contains(Character.toString(input));
     }
 
-    public String getRandomWord() {
+    public String getRandomWordFromDictionary() {
         return dictionary.get(random.nextInt(dictionary.size()));
     }
-
 }

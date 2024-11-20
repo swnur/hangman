@@ -7,7 +7,7 @@ import java.util.List;
 
 public class DictionaryLoader {
 
-    public List<String> getData(String filePath) {
+    public List<String> getDictionaryOfWords(String filePath) {
         List<String> dictionary = new ArrayList<>();
         try (BufferedReader reader = Files.newBufferedReader(Path.of(filePath))) {
             String line = null;
