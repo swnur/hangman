@@ -1,4 +1,5 @@
 public enum HangmanState {
+
     ZERO("""
                     +---+
                     |   |
@@ -57,6 +58,7 @@ public enum HangmanState {
                / \\  |
                     |
             ===========""");
+
 
     private final String scaffold;
 
