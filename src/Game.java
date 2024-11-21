@@ -17,7 +17,7 @@ public class Game {
 
         do {
             System.out.print("\nEnter [S] to start game or [E] to exit: ");
-            String input = wordService.getUserStartInput();
+            String input = wordService.userStartInput();
 
             if (input.equals("e")) {
                 System.exit(0);
@@ -31,7 +31,7 @@ public class Game {
 
     private void startRound() {
         final int TOTAL_ATTEMPTS = 7;
-        String word = wordService.getRandomWordFromDictionary();
+        String word = wordService.randomWordFromDictionary();
         char[] guessWord = new char[word.length()];
         Arrays.fill(guessWord, '_');
 
@@ -41,7 +41,7 @@ public class Game {
         do {
             renderer.print(guessWord, listOfErrors, countOfErrors, TOTAL_ATTEMPTS);
 
-            char inputCharacter = wordService.getUserGuessInput();
+            char inputCharacter = wordService.userGuessInput();
             boolean isCorrectGuess = wordService.checkUserGuessInput(word, inputCharacter);
 
             if (isCorrectGuess) {

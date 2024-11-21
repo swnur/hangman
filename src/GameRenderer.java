@@ -3,11 +3,11 @@ import java.util.Set;
 public class GameRenderer {
 
     public void print(char[] guessWord, Set<Character> listOfErrors, int countOfErrors, int totalAttempts) {
-        System.out.println(getHangmanState(countOfErrors, totalAttempts));
-        System.out.println(getCurrentState(guessWord, listOfErrors, totalAttempts));
+        System.out.println(hangmanState(countOfErrors, totalAttempts));
+        System.out.println(currentState(guessWord, listOfErrors, totalAttempts));
     }
 
-    private String getCurrentState(char[] guessWord, Set<Character> listOfErrors, int totalAttempts) {
+    private String currentState(char[] guessWord, Set<Character> listOfErrors, int totalAttempts) {
         StringBuilder output = new StringBuilder();
         output.append("Word: ");
 
@@ -26,9 +26,9 @@ public class GameRenderer {
         return output.toString();
     }
 
-    private String getHangmanState(int state, int totalAttempts) {
+    private String hangmanState(int state, int totalAttempts) {
         if (state < 0 && state > totalAttempts) {
-            throw new RuntimeException("Invalid state was given as a parameter");
+            throw new IllegalArgumentException("Wrong state number");
         }
         return HangmanState.values()[state].getScaffold();
     }
